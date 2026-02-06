@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DATA SPRINT 3.0 - Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="home-page">
+  <div id="letter-glitch"></div>
+
+
+  <div class="cursor-laser"></div>
+  <div class="scanline"></div>
+  <div id="notification-container"></div>
+
+  <nav>
+    <div class="container nav-content">
+      <div class="nav-left">
+        <a href="#" class="logo font-zen">
+          <img src="datasprint_transparent.png" style="width: 55px; height: 40px;" alt="Logo">
+          <div class="logo-text">DATA SPRINT<sup style="font-size: 0.7em; margin-bottom: 10px; margin-left: 6px;"><span
+                class="floating-version-mini">3.0</span></sup></div>
+        </a>
+      </div>
+
+      <div class="nav-right" style="display: flex; align-items: center; gap: 2rem;">
+        <div class="profile-trigger font-zen" id="profile-btn">
+          <span class="profile-icon">👤</span>
+          <span class="profile-name" id="user-display-name">Profile</span>
+        </div>
+        <a href="https://ai.sairamit.edu.in/" target="_blank" class="college-logo">
+          <img src="image.png" alt="College Logo">
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero dashboard-hero">
+      <div class="hero-grid"></div>
+      <div class="container hero-content">
+        <h2 class="dashboard-title font-zen neon-text-purple">EVENT DASHBOARD</h2>
+
+        <!-- Countdown Timer -->
+        <div class="hero-timer-box font-zen">
+          <div class="countdown-row" id="hero-countdown-row">
+            <div class="time-block">
+              <div class="time-val" id="days-hero">00</div>
+              <div class="time-label">DAYS</div>
+            </div>
+            <div class="time-block">
+              <div class="time-val" id="hours-hero">00</div>
+              <div class="time-label">HOURS</div>
+            </div>
+            <div class="time-block">
+              <div class="time-val" id="minutes-hero">00</div>
+              <div class="time-label">MIN</div>
+            </div>
+            <div class="time-block">
+              <div class="time-val" id="seconds-hero">00</div>
+              <div class="time-label">SEC</div>
+            </div>
+          </div>
+
+          <!-- Loading Bar -->
+          <div class="loader-container" style="margin-top: 2rem;">
+            <div class="loader-bar">
+              <div class="loader-fill" id="loading-fill"></div>
+            </div>
+            <div class="loader-text">
+              LOADING EXPERIENCE... <span id="loading-pct">0%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dashboard Content Placeholder -->
+        <div class="dashboard-info font-zen reveal">
+          <p>Welcome to Data Sprint 3.0! Your team details are available in the profile section.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Profile Modal/Overlay -->
+  <div class="profile-overlay" id="profile-overlay">
+    <div class="profile-card font-zen">
+      <button class="close-profile" id="close-profile">&times;</button>
+      <h3 class="neon-text-purple">TEAM PROFILE</h3>
+
+      <div class="team-summary" id="team-summary-trigger">
+        <p>Team Name: <span class="highlight-green" id="display-team-name">Loading...</span></p>
+        <p style="margin-top: 5px; font-size: 0.9rem;">Team ID: <span class="highlight-green"
+            id="display-team-id">---</span></p>
+      </div>
+
+      <div class="team-details-hidden" id="team-details-box">
+        <div class="member-list">
+          <div class="member-item">
+            <span class="member-role">LEAD:</span>
+            <span id="member-lead-name">...</span>
+          </div>
+          <div class="member-item">
+            <span class="member-role">MEMBER 1:</span>
+            <span id="member-1-name">...</span>
+          </div>
+          <div class="member-item">
+            <span class="member-role">MEMBER 2:</span>
+            <span id="member-2-name">...</span>
+          </div>
+          <div class="member-item">
+            <span class="member-role">MEMBER 3:</span>
+            <span id="member-3-name">...</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-actions">
+        <button class="btn-secondary" id="logout-btn">LOGOUT</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

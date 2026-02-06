@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DATA SPRINT 3.0</title>
+  <link rel="icon" href="fav/favicon.ico">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="fav/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="fav/favicon-16x16.png">
+
+  <link rel="apple-touch-icon" href="fav/apple-touch-icon.png">
+
+  <link rel="icon" type="image/png" sizes="192x192" href="fav/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="fav/android-chrome-512x512.png">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="letter-glitch"></div>
+  <div id="preloader">
+    <img src="datasprint_transparent.png" alt="Logo" id="preloader-logo">
+  </div>
+
+  <div class="cursor-laser"></div>
+  <div class="scanline"></div>
+  <div id="notification-container"></div>
+
+  <nav>
+    <div class="container nav-content">
+      <a href="#home" class="logo font-zen">
+        <img src="datasprint_transparent.png" style="width: 55px; height: 40px;" alt="Logo">
+        <div class="logo-text">DATA SPRINT<sup style="font-size: 0.7em; margin-bottom: 10px; margin-left: 6px;"><span
+              class="floating-version-mini">3.0</span></sup></div>
+      </a>
+      <div class="nav-links font-zen">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#domains">Rules</a>
+        <a href="#prizes">Prizes</a>
+        <a href="#partners">Sponsors</a>
+        <a href="#faq">FAQ</a>
+        <div class="nav-btns">
+          <button class="login-btn btn-login">Login</button>
+          <button class="login-btn btn-register">Register</button>
+        </div>
+        <a href="https://ai.sairamit.edu.in/" target="_blank" class="college-logo-desktop" rel="noopener noreferrer">
+          <img src="image.png" alt="College Logo">
+        </a>
+      </div>
+      <button id="mobile-menu-toggle" class="mobile-toggle font-zen">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-grid"></div>
+      <div class="radar-ping"></div>
+      <div class="bg-digit font-zen">3.0</div>
+
+      <div class="container hero-content">
+        <div class="hero-info-card">
+          <span class="hero-tag font-mono">The <span
+              style="color: var(--p-400); font-size: large; font-weight: 100;">Future</span> is Here</span>
+        </div>
+        <h1 class="hero-title font-zen neon-text-purple hero-title-container">
+          DATA <span class="floating-version">3.0</span><span style="margin-left: 2%;">SPRINT</span>
+        </h1>
+
+        <div class="hero-info-card">
+          <div class="hero-date font-zen">
+            <span>FEB <span style="color: var(--p-500)">12-13</span> 2026</span>
+            <span style="opacity: 0.5">A 24-hour Intense Data Science Hackathon</span>
+          </div>
+        </div>
+
+        <!-- New Hero Countdown (from template) -->
+        <div class="hero-timer-box font-zen">
+          <div class="countdown-row" id="hero-countdown-row">
+            <div class="time-block">
+              <div class="time-val" id="days-hero">00</div>
+              <div class="time-label">DAYS</div>
+            </div>
+            <div class="time-block">
+              <div class="time-val" id="hours-hero">00</div>
+              <div class="time-label">HOURS</div>
+            </div>
+            <div class="time-block">
+              <div class="time-val" id="minutes-hero">00</div>
+              <div class="time-label">MIN</div>
+            </div>
+            <div class="time-block">
+              <div class="time-val" id="seconds-hero">00</div>
+              <div class="time-label">SEC</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="btn-group font-zen">
+          <button class="btn-primary" id="explore-btn">Explore Events</button>
+          <button class="btn-secondary" id="register-hero-btn">Register Now</button>
+        </div>
+    </section>
+
+    <!-- Separate Sticky Loader (Slides from Left) -->
+    <div class="sticky-loader-widget" id="sticky-loader">
+      <div class="widget-inner">
+        <div class="widget-front">
+          <div class="loading-bar-wrapper">
+            <div class="loading-label font-mono">LOADING DATA...</div>
+            <div class="loading-bar">
+              <div class="loading-bar-fill" id="loading-fill"></div>
+            </div>
+            <span class="loading-percentage font-mono" id="loading-pct">0%</span>
+          </div>
+        </div>
+        <div class="widget-back">
+          <div class="compact-timer font-mono">
+            <div class="timer-item"><span id="days-sticky">00</span><small>D</small></div>
+            <div class="timer-item"><span id="hours-sticky">00</span><small>H</small></div>
+            <div class="timer-item"><span id="minutes-sticky">00</span><small>M</small></div>
+            <div class="timer-item"><span id="seconds-sticky">00</span><small>S</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section id="about" class="reveal">
+      <div class="container">
+        <h2 id="heading-about" class="section-title font-zen neon-text-purple">ABOUT DATA SPRINT</h2>
+        <div class="text-card section-content font-mono">
+          <p>> DATA SPRINT 3.0 is a 24-hour Data-Centric innovation challenge by the Department of Artificial
+            Intelligence & Data Science.</p><br>
+          <p>> A competitive arena where innovators and creators push boundaries to solve practical problems through
+            artificial intelligence and data-driven solutions.</p><br>
+          <p>> Step into an intense 24-hour journey of innovation, teamwork and breakthrough ideas.</p>
+        </div>
+
+        <div class="video-container reveal" style="margin-top: 4rem;">
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/u4bTN24F3dQ" title="DATA SPRINT 3.0 Promo" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="timeline">
+      <div class="container">
+        <h2 id="heading-timeline" class="section-title font-zen neon-text-purple">PROPOSED TIMELINE</h2>
+
+        <div class="timeline-wrapper" id="timeline-wrapper">
+          <div class="timeline-line">
+            <div class="timeline-progress" id="timeline-progress"></div>
+          </div>
+
+          <!-- 6 contents with default values -->
+          <div class="timeline-item right">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content font-mono">
+              <h3 class="font-zen">PHASE_01</h3>
+              <p>> INITIALIZING REGISTRATION</p>
+              <p>> LAST DATE FOR REGISTRATION: 09/02/2026</p>
+              <p>> TIME: 08:00 PM</p>
+              <div class="glass-effect"></div>
+            </div>
+          </div>
+
+          <div class="timeline-item left">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content font-mono">
+              <h3 class="font-zen">PHASE_02</h3>
+              <p>> PRELIMS ROUNDS</p>
+              <p>> MODE: ONLINE</p>
+              <p>> PRELIMS WILL BE CONDUCTED IN UNSTOP.</p>
+              <p>> DURATION: 09.02.2026(10.00 PM) - 10.02.2026(11.00 AM)</p>
+              <div class="glass-effect"></div>
+            </div>
+          </div>
+
+          <div class="timeline-item right">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content font-mono">
+              <h3 class="font-zen">PHASE_03</h3>
+              <p>> FINALIST ANNOUNCEMENT</p>
+              <p>> DATE: 10.02.2026</p>
+              <p>> TIME: 4.00 PM</p>
+              <div class="glass-effect"></div>
+            </div>
+          </div>
+
+          <div class="timeline-item left">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content font-mono">
+              <h3 class="font-zen">PHASE_04</h3>
+              <p>> HACKATHON STARTS</p>
+              <p>> MODE: OFFLINE</p>
+              <p>> HACKATHON STARTS ON 12/02/2026</p>
+              <p>> TIME: 09:00 AM</p>
+              <div class="glass-effect"></div>
+            </div>
+          </div>
+
+          <div class="timeline-item right">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content font-mono">
+              <h3 class="font-zen">PHASE_05</h3>
+              <p>> HACKATHON ENDS</p>
+              <p>> MODE: OFFLINE</p>
+              <p>> HACKATHON ENDS ON 13/02/2026</p>
+              <p>> TIME: 12:00 PM</p>
+              <div class="glass-effect"></div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </section>
+
+    <section id="domains" class="reveal border-top">
+      <div class="container">
+        <h2 id="heading-domains" class="section-title font-zen neon-text-purple">RULES & GUIDELINES</h2>
+        <div class="text-card section-content font-mono">
+          <p>> Each team must consist of exactly 4 members.</p>
+          <p>> Participants must bring their own laptop and an Ethernet cable.</p>
+          <p>> Spot registration is not permitted.</p>
+          <p>> Preliminary rounds will be conducted, and only shortlisted teams will proceed further.</p>
+          <p>> The hackathon will consist of four rounds, and the final winners will be determined based on cumulative
+            performance across all rounds.</p>
+          <p>> Certificates will be provided to all participants.</p>
+          <p>> The venue for the event will be announced soon.</p>
+          <p>> The Judges decisions will be final.</p>
+          <p>> Proper dress code must be followed throughout the event.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="prizes" class="reveal border-top">
+      <div class="container">
+        <h2 id="heading-prizes" class="section-title font-zen neon-text-purple">PRIZE POOL</h2>
+        <div class="quote font-mono">
+          <p> Gather - Transform - Build - Predict - Win</p>
+        </div>
+        <div class="prizes-list font-zen">
+          <div class="prize-item gold">
+            <span class="rank">1</span>
+            <span class="value">₹ 15,000</span>
+          </div>
+          <div class="prize-item silver">
+            <span class="rank">2</span>
+            <span class="value">₹ 10,000</span>
+          </div>
+          <div class="prize-item bronze">
+            <span class="rank">3</span>
+            <span class="value">₹ 5,000</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="partners" class="reveal border-top">
+      <h2 id="heading-partners" class="section-title font-zen neon-text-purple">OUR SPONSORS</h2>
+      <div class="container" style="display: flex-;">
+        <div class="partners-logo-cloud">
+          <div class="partner-logo font-zen" style="font-size: clamp(1.5rem, 5vw, 2.5rem);line-height: 1.1; max-width: 250px; text-align: center">ORIGEN</div>
+          <div class="image-circle">
+            <img src="ORIGEN.PNG" alt="pic">
+          </div>
+        </div>
+        <div class="partners-logo-cloud">
+          <div class="partner-logo font-zen" style="font-size: clamp(1.5rem, 5vw, 2.5rem); line-height: 1.1; max-width: 250px; text-align: center;">TIER ONE MENTOR</div>
+          <div class="image-circle">
+            <img src="tierone.jpeg" alt="pic">
+          </div>
+        </div>
+        <div class="partners-logo-cloud">
+          <div class="partner-logo font-zen" style="font-size: clamp(1.5rem, 5vw, 2.5rem); line-height: 1.1; max-width: 250px; text-align: center;"><span style="font-size: clamp(2rem, 7vw, 3.5rem);">𝞹</span> TECH PEDIA</div>
+          <div class="image-circle">
+            <img src="techpedia.png" alt="pic">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="reveal border-top">
+      <div class="container">
+        <h2 id="heading-gallery" class="section-title font-zen neon-text-purple">PHOTO WALL</h2>
+        <div class="gallery-wrapper">
+          <div class="carousel-track">
+            <!-- First Set -->
+            <div class="carousel-item">
+              <img src="image/WhatsApp Image 2026-02-03 at 6.55.31 PM.jpeg" alt="Gallery Image 1">
+            </div>
+            <div class="carousel-item">
+              <img src="image/WhatsApp Image 2026-02-03 at 6.55.32 PM (1).jpeg" alt="Gallery Image 2">
+            </div>
+            <div class="carousel-item">
+              <img src="image/WhatsApp Image 2026-02-03 at 6.55.32 PM.jpeg" alt="Gallery Image 3">
+            </div>
+            <div class="carousel-item">
+              <img src="image/WhatsApp Image 2026-02-03 at 6.59.55 PM.jpeg" alt="Gallery Image 4">
+            </div>
+            <div class="carousel-item">
+              <img src="image/WhatsApp Image 2026-02-03 at 6.59.56 PM (1).jpeg" alt="Gallery Image 5">
+            </div>
+            <div class="carousel-item">
+              <img src="image/WhatsApp Image 2026-02-03 at 6.59.56 PM.jpeg" alt="Gallery Image 6">
+            </div>
+            <div class="carousel-item">
+              <img src="image/WhatsApp Image 2026-02-03 at 7.02.54 PM.jpeg" alt="Gallery Image 7">
+            </div>
+            <div class="carousel-item">
+              <img src="image/WhatsApp Image 2026-02-03 at 7.02.55 PM.jpeg" alt="Gallery Image 8">
+            </div>
+            <div class="carousel-item">
+              <img src="image/WhatsApp Image 2026-02-03 at 7.03.07 PM.jpeg" alt="Gallery Image 9">
+            </div>
+
+            <!-- Duplicate Set for Seamless Loop -->
+            <div class="carousel-item">
+              <img src="image/WhatsApp Image 2026-02-03 at 6.55.31 PM.jpeg" alt="Gallery Image 1">
+            </div>
+            <div class="carousel-item">
+              <img src="image/WhatsApp Image 2026-02-03 at 6.55.32 PM (1).jpeg" alt="Gallery Image 2">
+            </div>
+            <div class="carousel-item">
+              <img src="image/WhatsApp Image 2026-02-03 at 6.55.32 PM.jpeg" alt="Gallery Image 3">
+            </div>
+            <div class="carousel-item">
+              <img src="image/WhatsApp Image 2026-02-03 at 6.59.55 PM.jpeg" alt="Gallery Image 4">
+            </div>
+            <div class="carousel-item">
+              <img src="image/WhatsApp Image 2026-02-03 at 6.59.56 PM (1).jpeg" alt="Gallery Image 5">
+            </div>
+            <div class="carousel-item">
+              <img src="image/WhatsApp Image 2026-02-03 at 6.59.56 PM.jpeg" alt="Gallery Image 6">
+            </div>
+            <div class="carousel-item">
+              <img src="image/WhatsApp Image 2026-02-03 at 7.02.54 PM.jpeg" alt="Gallery Image 7">
+            </div>
+            <div class="carousel-item">
+              <img src="image/WhatsApp Image 2026-02-03 at 7.02.55 PM.jpeg" alt="Gallery Image 8">
+            </div>
+            <div class="carousel-item">
+              <img src="image/WhatsApp Image 2026-02-03 at 7.03.07 PM.jpeg" alt="Gallery Image 9">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="staff" class="scope-section">
+      <div class="container">
+        <h2 class="section-title font-zen neon-text-purple">PATRONS</h2>
+        <div class="staff-grid font-mono">
+          <div class="staff-card">
+            <div class="image-circle">
+              <img src="pic/image1.jpeg" alt="pic">
+            </div>
+            <div class="staff-info">
+              <h4 class="font-zen" style="font-size: 1.2rem;">Dr. Sai Prakash Leo Muthu</h4>
+              <p>CEO - Sairam Institutions</p>
+            </div>
+          </div>
+
+          <div class="staff-card">
+            <div class="image-circle">
+              <img src="pic/image2.jpeg" alt="pic">
+            </div>
+            <div class="staff-info">
+              <h3 class="font-zen" style="font-size: 1.2rem;">Dr. K. PALANIKUMAR</h3>
+              <p>Principal</p>
+            </div>
+          </div>
+
+          <div class="staff-card">
+            <div class="image-circle">
+              <img src="pic/image3.jpeg" alt="pic">
+            </div>
+            <div class="staff-info">
+              <h3 class="font-zen" style="font-size: 1.2rem;">Dr. SU. SUGANTHI</h3>
+              <p>Head of Department (AI & DS)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <hr style="border: 0; border-top: 1px solid var(--border-purple); margin: 0 auto; width: 80%;">
+    </div>
+
+    <!-- Scope Members Section -->
+    <section id="scope-members" class="scope-section">
+      <div class="container">
+        <h2 class="section-title font-zen neon-text-purple">SCOPE MEMBERS</h2>
+
+        <div class="members-list font-mono">
+
+          <div class="member-row">
+            <div class="scope-letter">S</div>
+            <div class="member-details">
+              <h4 class="font-zen">Mr. J. JEYA GANESAN</h4>
+              <p>Strategist</p>
+            </div>
+            <div class="member-image-circle">
+              <img src="pic/image4.jpeg" alt="pic">
+            </div>
+          </div>
+
+          <div class="member-row">
+            <div class="scope-letter">c</div>
+            <div class="member-details">
+              <h4 class="font-zen">Mr. B. RAVI KUMAR</h4>
+              <p>Captain</p>
+            </div>
+            <div class="member-image-circle">
+              <img src="pic/image5.jpeg" alt="pic">
+            </div>
+          </div>
+
+          <div class="member-row">
+            <div class="scope-letter">o</div>
+            <div class="member-details">
+              <h4 class="font-zen">Dr. A. RAJA SEKAR</h4>
+              <p>Organizer</p>
+            </div>
+            <div class="member-image-circle">
+              <img src="pic/image6.jpeg" alt="pic">
+            </div>
+          </div>
+
+          <div class="member-row">
+            <div class="scope-letter">p</div>
+            <div class="member-details">
+              <h4 class="font-zen">Ms. T. UMA MAGESWARI</h4>
+              <p>Propagator</p>
+            </div>
+            <div class="member-image-circle">
+              <img src="pic/image7.jpeg" alt="pic">
+            </div>
+          </div>
+
+          <div class="member-row">
+            <div class="scope-letter">e</div>
+            <div class="member-details">
+              <h4 class="font-zen">Ms. M. GANGA</h4>
+              <p>Executor</p>
+            </div>
+            <div class="member-image-circle">
+              <img src="pic/image8.jpeg" alt="pic">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <section id="faq" class="reveal border-top">
+      <div class="container">
+        <h2 id="heading-faq" class="section-title font-zen neon-text-purple">FAQ</h2>
+        <div class="text-card faq-container font-mono">
+          <div class="faq-item">
+            <div class="faq-q">> Who can participate?</div>
+            <div class="faq-a">Students from any undergraduate or graduate program interested in AI and Data Science.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">> Registration fee?</div>
+            <div class="faq-a">The hackathon is completely free for all selected teams.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">> Will food and refreshments be provided?</div>
+            <div class="faq-a">Yes. food and refreshments will be provided to all the participants.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">> What is the reporting time?</div>
+            <div class="faq-a">Details will be shared with the selected participants via email.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">> Will there be any certificates?</div>
+            <div class="faq-a">Yes, all participants will receive participation certificates, and winners will receive
+              merit certificates.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">> Is Guardian/Parents allowed?</div>
+            <div class="faq-a">No, guardians/Parents are not allowed inside the hackathon premises.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">> Will OD recommendation letters be provided?</div>
+            <div class="faq-a">No, On-Duty (OD) recommendation letters will not be provided.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">> Do I need to bring my own laptop?</div>
+            <div class="faq-a">Yes, all participants must bring their own laptops and necessary peripherals.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">> Is On-Spot Registration Available?</div>
+            <div class="faq-a">No, only pre-registered and selected teams can participate.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">> Will transportation be provided?</div>
+            <div class="faq-a">Yes, transportation will be provided exclusively from Tambaram.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="location" class="reveal border-top">
+      <h2 id="heading-location" class="section-title font-zen neon-text-purple" style="padding-top: 0%;">LOCATION</h2>
+      <div class="mother-container">
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.1750647706576!2d80.05065757507627!3d12.960647087353733!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52f51f638ddfbb%3A0xf3aef7ec7c8979ba!2sSri%20Sairam%20Institute%20of%20Technology!5e0!3m2!1sen!2sin!4v1770106360351!5m2!1sen!2sin"
+            width="250" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="location-text font-mono">
+          <p style="color: var(--p-400);"> Sri Sairam Institute of Technology</p>
+          <p style="color: var(--p-400);"> Chennai, Tamil Nadu, India</p>
+          <br>
+          <address>Sai Leo Nagar, West Tambaram,
+            Chennai - 600 044
+          </address>
+          <br>
+          <p style="color: var(--p-400);"> Venue: Beta hall, Sairam Institutions</p>
+          <br>
+          <p style="text-align: left;">
+            <span style="color:var(--p-400)">Email:</span><a href="mailto:datasprint.aids@gmail.com"
+              style="color: #ffffff; text-align: left;">datasprint.aids@gmail.com</a><br>
+            <span style="color:var(--p-400)">Email:</span><a href="mailto:datasprint.ai@gmail.com"
+              style="color: #ffffff;">datasprint.ai@gmail.com</a>
+          </p>
+          <br>
+          <p style="color: var(--p-400); text-align: left;">Subbiah V</p>
+          <p style="text-align: left;">Phone: <a href="tel:+918122121806" style="color: #ffffff;">+91 81221 21806</a>
+          </p>
+          <p style="color: var(--p-400); text-align: left;">Srivarshan K</p>
+          <p style="text-align: left;">Phone: <a href="tel:+916369136214" style="color: #ffffff;">+91 63691 36214</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Login/Register Modal -->
+    <!-- [/] Add College Logo to Nav Bar [/]
+    - [x] Create implementation plan [x]
+    - [x] Add college logo link to `index.html` [x]
+    - [/] Add CSS for college logo (desktop only) [/] -->
+    <div id="auth-modal" class="modal">
+      <div class="modal-content font-mono">
+        <div class="modal-header">
+          <h2 id="modal-title" class="font-zen">LOGIN</h2>
+          <button class="close-modal">&times;</button>
+        </div>
+        <form id="auth-form">
+          <div class="input-group">
+            <label>USERNAME</label>
+            <input type="text" placeholder="user@datasprint">
+          </div>
+          <div class="input-group">
+            <label>PASSWORD</label>
+            <input type="password" placeholder="********">
+          </div>
+          <button type="submit" class="auth-submit-btn font-zen">INITIATE SESSION</button>
+
+          <div class="auth-footer">
+            <a href="#" id="go-to-admin" class="footer-link">Admin</a>
+            <div class="footer-right">
+              <a href="#" id="go-to-forgot" class="footer-link">forgot password</a>
+            </div>
+          </div>
+        </form>
+
+        <form id="forgot-password-form" style="display: none;">
+          <div class="input-group">
+            <label>USER ID</label>
+            <input type="text" id="forgot-userid" placeholder="Enter your User ID">
+          </div>
+          <div id="otp-section" style="display: none;">
+            <div class="input-group">
+              <label>ENTER OTP</label>
+              <input type="text" id="forgot-otp" maxlength="6" placeholder="XXXXXX">
+            </div>
+            <div class="input-group">
+              <label>NEW PASSWORD</label>
+              <input type="password" id="forgot-new-password" placeholder="********">
+            </div>
+            <button type="submit" class="auth-submit-btn font-zen">RESET PASSWORD</button>
+          </div>
+          <button type="button" id="request-otp-btn" class="auth-submit-btn font-zen">REQUEST OTP</button>
+
+          <div class="auth-footer" style="justify-content: center;">
+            <a href="#" id="back-to-login" class="footer-link">Back to Login</a>
+          </div>
+        </form>
+
+        <form id="admin-login-form" style="display: none;">
+          <div class="input-group">
+            <label>USERNAME</label>
+            <input type="text" placeholder="admin@datasprint">
+          </div>
+          <div class="input-group">
+            <label>PASSWORD</label>
+            <input type="password" placeholder="********">
+          </div>
+          <button type="submit" class="auth-submit-btn font-zen">ADMIN ACCESS</button>
+
+          <div class="auth-footer" style="justify-content: center;">
+            <a href="#" id="admin-forgot" class="footer-link">Forgot Password</a>
+          </div>
+        </form>
+
+        <form id="register-form" style="display: none;">
+          <!-- Progress Bar -->
+          <div class="registration-progress">
+            <div class="progress-bar-fill" id="reg-progress-fill" style="width: 25%;"></div>
+            <div class="progress-steps">
+              <div class="step-indicator active">1</div>
+              <div class="step-indicator">2</div>
+              <div class="step-indicator">3</div>
+              <div class="step-indicator">4</div>
+            </div>
+          </div>
+
+          <!-- Step 1: Team & Lead Info -->
+          <div class="form-step active" id="step-1">
+            <div class="input-group">
+              <label>TEAM_NAME</label>
+              <input type="text" required placeholder="Enter team name" name="team_name">
+            </div>
+
+            <h4 class="section-titl">TEAM_LEAD_DETAILS</h4>
+            <div class="input-group">
+              <label>FULL_NAME</label>
+              <input type="text" required placeholder="Lead name" name="lead_name">
+            </div>
+            <div class="input-group">
+              <label>PHONE_NUMBER</label>
+              <input type="tel" required placeholder="+91 XXXX XXXX XX" name="lead_phone">
+            </div>
+            <div class="input-group email-verify-group">
+              <label>EMAIL_ADDRESS</label>
+              <div class="input-with-button">
+                <input type="email" id="lead-email" required placeholder="lead@example.com" name="lead_email">
+                <button type="button" id="send-otp-btn" class="verify-btn">VERIFY</button>
+              </div>
+            </div>
+
+            <!-- OTP Box (Hidden initially) -->
+            <div id="otp-verify-box" class="otp-box" style="display: none;">
+              <div class="input-group">
+                <label>ENTER OTP SENT TO YOUR EMAIL</label>
+                <div class="input-with-button">
+                  <input type="text" id="reg-otp-input" maxlength="6" placeholder="XXXXXX">
+                  <button type="button" id="verify-otp-btn" class="verify-btn">VERIFY OTP</button>
+                </div>
+                <small id="otp-msg" style="display: block; margin-top: 0.5rem;"></small>
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label>COLLEGE_NAME</label>
+              <input type="text" required placeholder="Institution Name" name="lead_college">
+            </div>
+            <div class="input-group">
+              <label>DEPARTMENT</label>
+              <input type="text" required placeholder="e.g. AI & DS" name="lead_dept">
+            </div>
+            <div class="input-group" style="margin-bottom: 2rem;">
+              <label>YEAR</label>
+              <select required name="lead_year">
+                <option value="" disabled selected>Select Year</option>
+                <option value="1">1st Year</option>
+                <option value="2">2nd Year</option>
+                <option value="3">3rd Year</option>
+                <option value="4">4th Year</option>
+              </select>
+            </div>
+
+            <div class="form-nav">
+              <button type="button" class="next-step-btn" id="to-step-2" disabled>NEXT</button>
+            </div>
+          </div>
+
+          <!-- Step 2: Member 1 -->
+          <div class="form-step" id="step-2">
+            <h4 class="section-titl">MEMBER_1_DETAILS</h4>
+            <div class="input-group">
+              <label>FULL_NAME</label>
+              <input type="text" placeholder="Member 1 name" name="m1_name">
+            </div>
+            <div class="input-group">
+              <label>PHONE_NUMBER</label>
+              <input type="tel" placeholder="+91 XXXX XXXX XX" name="m1_phone">
+            </div>
+            <div class="input-group">
+              <label>EMAIL_ADDRESS</label>
+              <input type="email" placeholder="member1@example.com" name="m1_email">
+            </div>
+            <div class="input-group">
+              <label>COLLEGE_NAME</label>
+              <input type="text" placeholder="Institution Name" name="m1_college">
+            </div>
+            <div class="input-group">
+              <label>DEPARTMENT</label>
+              <input type="text" placeholder="e.g. AI & DS" name="m1_dept">
+            </div>
+            <div class="input-group" style="margin-bottom: 2rem;">
+              <label>YEAR</label>
+              <select name="m1_year">
+                <option value="" disabled selected>Select Year</option>
+                <option value="1">1st Year</option>
+                <option value="2">2nd Year</option>
+                <option value="3">3rd Year</option>
+                <option value="4">4th Year</option>
+              </select>
+            </div>
+            <div class="form-nav">
+              <button type="button" class="prev-step-btn">PREV</button>
+              <button type="button" class="next-step-btn">NEXT</button>
+            </div>
+          </div>
+
+          <!-- Step 3: Member 2 -->
+          <div class="form-step" id="step-3">
+            <h4 class="section-titl">MEMBER_2_DETAILS</h4>
+            <div class="input-group">
+              <label>FULL_NAME</label>
+              <input type="text" placeholder="Member 2 name" name="m2_name">
+            </div>
+            <div class="input-group">
+              <label>PHONE_NUMBER</label>
+              <input type="tel" placeholder="+91 XXXX XXXX XX" name="m2_phone">
+            </div>
+            <div class="input-group">
+              <label>EMAIL_ADDRESS</label>
+              <input type="email" placeholder="member2@example.com" name="m2_email">
+            </div>
+            <div class="input-group">
+              <label>COLLEGE_NAME</label>
+              <input type="text" placeholder="Institution Name" name="m2_college">
+            </div>
+            <div class="input-group">
+              <label>DEPARTMENT</label>
+              <input type="text" placeholder="e.g. AI & DS" name="m2_dept">
+            </div>
+            <div class="input-group" style="margin-bottom: 2rem;">
+              <label>YEAR</label>
+              <select name="m2_year">
+                <option value="" disabled selected>Select Year</option>
+                <option value="1">1st Year</option>
+                <option value="2">2nd Year</option>
+                <option value="3">3rd Year</option>
+                <option value="4">4th Year</option>
+              </select>
+            </div>
+            <div class="form-nav">
+              <button type="button" class="prev-step-btn">PREV</button>
+              <button type="button" class="next-step-btn">NEXT</button>
+            </div>
+          </div>
+
+          <!-- Step 4: Member 3 & Credentials -->
+          <div class="form-step" id="step-4">
+            <h4 class="section-titl">MEMBER_3_DETAILS</h4>
+            <div class="input-group">
+              <label>FULL_NAME</label>
+              <input type="text" placeholder="Member 3 name" name="m3_name">
+            </div>
+            <div class="input-group">
+              <label>PHONE_NUMBER</label>
+              <input type="tel" placeholder="+91 XXXX XXXX XX" name="m3_phone">
+            </div>
+            <div class="input-group">
+              <label>EMAIL_ADDRESS</label>
+              <input type="email" placeholder="member3@example.com" name="m3_email">
+            </div>
+            <div class="input-group">
+              <label>COLLEGE_NAME</label>
+              <input type="text" placeholder="Institution Name" name="m3_college">
+            </div>
+            <div class="input-group">
+              <label>DEPARTMENT</label>
+              <input type="text" placeholder="e.g. AI & DS" name="m3_dept">
+            </div>
+            <div class="input-group" style="margin-bottom: 2rem;">
+              <label>YEAR</label>
+              <select name="m3_year">
+                <option value="" disabled selected>Select Year</option>
+                <option value="1">1st Year</option>
+                <option value="2">2nd Year</option>
+                <option value="3">3rd Year</option>
+                <option value="4">4th Year</option>
+              </select>
+            </div>
+
+            <h4 class="section-titl">CREDENTIALS</h4>
+            <div class="input-group">
+              <label>USERNAME</label>
+              <input type="text" id="username" readonly placeholder="Auto-generated">
+            </div>
+            <div class="input-group">
+              <label>PASSWORD</label>
+              <input type="password" id="password" required placeholder="********">
+            </div>
+            <div class="input-group">
+              <label>CONFIRM_PASSWORD</label>
+              <input type="password" id="confirm-password" required placeholder="********">
+              <small id="password-msg"
+                style="color: #ef4444; font-size: 0.75rem; margin-top: 0.25rem; display: block;"></small>
+            </div>
+
+            <div class="form-nav">
+              <button type="button" class="prev-step-btn">PREV</button>
+              <button type="submit" id="register-btn" class="auth-submit-btn font-zen" style="margin-top: 0;" disabled>
+                REGISTER
+              </button>
+            </div>
+          </div>
+
+          <p style="margin-top: 1rem; text-align: center; font-size: 0.8rem; opacity: 0.6;">Already have an account? <a
+              href="#" id="go-to-login" style="color: var(--p-400); text-decoration: none;">Login here</a></p>
+        </form>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="terminal">
+          <div class="terminal-header font-mono">
+            <div class="dots">
+              <div class="dot dot-red"></div>
+              <div class="dot dot-yellow"></div>
+              <div class="dot dot-green"></div>
+            </div>
+            <div>system@datasprint-3.0</div>
+            <div></div>
+          </div>
+          <div class="terminal-body font-mono">
+            <div class="terminal-col">
+              <h2 class="font-zen" style="color: var(--p-500); margin-bottom: 1.5rem; font-size: 1.2rem;">&gt;
+                TERMINAL</h2>
+              <p style="color: rgba(255,255,255,0.7); line-height: 2;">
+                <span style="color: var(--p-600); font-size: 0.8rem;">[INFO]</span> Redefining Intelligence & Data
+                Science<br>
+                <span style="color: var(--p-600); font-size: 0.8rem;">[INFO]</span> Establishing connection to Core
+                Database...<br>
+                <span style="color: var(--p-600); font-size: 0.8rem;">[LOAD]</span> Initializing Hackathon
+              </p>
+            </div>
+            <div class="terminal-col">
+              <h3 class="font-zen"
+                style="color: var(--p-500); font-size: 1.5rem; margin-bottom: 1rem; border-bottom: 1px solid var(--border-purple); padding-bottom: 0.5rem;">
+                SOCIAL MEDIA</h3>
+              <p class="socials font-mono">
+                <a href="https://www.instagram.com/datasprint.ai/" target="_blank" rel="noopener noreferrer">>
+                  datasprint_official</a><br>
+                <a href="https://www.youtube.com/@datasprint-dev-team" target="_blank" rel="noopener noreferrer">> DATA
+                  SPRINT YouTube</a><br>
+                <a href="https://www.linkedin.com/in/data-sprint-17b90a328/" target="_blank" rel="noopener noreferrer">>
+                  datasprint
+                  official Linkedin</a>
+              </p>
+            </div>
+          </div>
+          <div class="terminal-status font-mono">
+            <div style="display: flex; gap: 1rem;">
+              <span style="color: #ffffff;">● ONLINE</span>
+            </div>
+            <div style="opacity: 1;">© 2026 DEPT OF AI & DS</div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <button id="go-up-btn" class="go-up-btn font-zen" title="Go to Top">↑</button>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADMIN | DATASPRINT 3.0</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=JetBrains+Mono:wght@100..800&display=swap"
+        rel="stylesheet">
+    <style>
+        .admin-container {
+            padding: 100px 5% 50px;
+            min-height: 100vh;
+            position: relative;
+            z-index: 5;
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--p-700);
+            padding-bottom: 20px;
+        }
+
+        .admin-title h1 {
+            font-size: 2.5rem;
+            color: var(--p-400);
+            letter-spacing: 4px;
+        }
+
+        .admin-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .table-wrapper {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--p-800);
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+        }
+
+        th {
+            background: var(--p-900);
+            color: var(--p-300);
+            text-align: left;
+            padding: 15px;
+            border-bottom: 2px solid var(--p-700);
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid var(--p-900);
+            color: #ccc;
+        }
+
+        tr:hover td {
+            background: rgba(22, 163, 74, 0.1);
+            color: var(--p-400);
+        }
+
+        .badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+        }
+
+        .badge-verified {
+            background: rgba(74, 222, 128, 0.2);
+            color: #4ade80;
+        }
+
+        .badge-pending {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+        }
+
+        .btn-download {
+            background: var(--p-600);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'JetBrains Mono', monospace;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+        }
+
+        .btn-download:hover {
+            background: var(--p-500);
+            box-shadow: 0 0 15px var(--p-600);
+        }
+
+        .loader-box {
+            text-align: center;
+            padding: 50px;
+        }
+
+        /* Details Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: #050505;
+            border: 1px solid var(--p-600);
+            width: 90%;
+            max-width: 900px;
+            max-height: 85vh;
+            overflow-y: auto;
+            border-radius: 12px;
+            box-shadow: 0 0 40px rgba(22, 163, 74, 0.2);
+            position: relative;
+            padding: 40px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: #666;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .close-modal:hover {
+            color: var(--p-400);
+            transform: rotate(90deg);
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .detail-section {
+            border: 1px solid var(--p-900);
+            padding: 20px;
+            border-radius: 8px;
+            background: rgba(22, 163, 74, 0.03);
+        }
+
+        .detail-section h4 {
+            color: var(--p-400);
+            border-bottom: 1px solid var(--p-800);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+        }
+
+        .detail-item {
+            margin-bottom: 12px;
+        }
+
+        .detail-label {
+            display: block;
+            font-size: 0.7rem;
+            color: #666;
+            text-transform: uppercase;
+            margin-bottom: 3px;
+        }
+
+        .detail-value {
+            color: #ddd;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+        }
+
+        .btn-view {
+            background: rgba(22, 163, 74, 0.1);
+            color: var(--p-400);
+            border: 1px solid var(--p-600);
+            padding: 5px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            transition: 0.3s;
+        }
+
+        .btn-view:hover {
+            background: var(--p-600);
+            color: white;
+            box-shadow: 0 0 10px var(--p-600);
+        }
+
+        .nav-link-glow:hover {
+            color: var(--p-300);
+            text-shadow: 0 0 10px var(--p-500);
+        }
+
+        .logo-text {
+            margin-left: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        #admin-logo-img:hover {
+            transform: scale(1.1) rotate(-5deg);
+            filter: drop-shadow(0 0 20px var(--p-400));
+        }
+
+        @media (max-width: 768px) {
+            .admin-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            .admin-title h1 {
+                font-size: 1.8rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: rgba(5, 10, 5, 0.95);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 40px;
+                gap: 30px;
+                transform: translateY(-150%);
+                transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                border-bottom: 1px solid var(--p-900);
+                display: flex !important;
+                /* Force flex but use transform for hiding */
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+            }
+
+            .mobile-toggle {
+                display: block !important;
+            }
+
+            .admin-container {
+                padding-top: 120px;
+            }
+        }
+    </style>
+</head>
+
+<body class="dark-theme">
+    <!-- Visual Background Effects -->
+    <div id="letter-glitch" class="glitch-fixed"></div>
+    <div class="cursor-laser"></div>
+    <div id="notification-container"></div>
+
+    <nav>
+        <div class="nav-content container">
+            <div class="logo">
+                <img src="datasprint_transparent.png" alt="Logo"
+                    style="height: 40px; width: auto; filter: drop-shadow(0 0 10px var(--p-600)); transition: 0.3s;"
+                    id="admin-logo-img">
+                <div class="logo-text">
+                    <span class="font-zen" style="font-size: 1rem; letter-spacing: 2px; color: #fff;">DATA<span
+                            style="color: var(--p-400);">SPRINT</span></span>
+                    <small class="font-mono"
+                        style="display: block; font-size: 0.6rem; color: var(--p-500); letter-spacing: 4px; border-top: 1px solid var(--p-900); padding-top: 2px;">COMMAND_CENTER</small>
+                </div>
+            </div>
+
+            <button class="mobile-toggle" id="admin-mobile-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <div class="nav-links" id="admin-nav-links">
+                <a href="index.html" class="nav-link-glow">VIEW SITE</a>
+                <button id="logout-btn" class="login-btn"
+                    style="border-radius: 4px; padding: 0.6rem 1.5rem; background: rgba(220, 38, 38, 0.1); border-color: rgba(220, 38, 38, 0.4);">SECURE
+                    LOGOUT</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="admin-container">
+        <div class="admin-header reveal">
+            <div class="admin-title">
+                <h1 class="font-mono">COMMAND CENTER</h1>
+                <p class="text-muted">Registered Teams Overview</p>
+            </div>
+            <div class="admin-actions">
+                <button id="download-csv" class="btn-download">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                    </svg>
+                    EXPORT CSV
+                </button>
+            </div>
+        </div>
+
+        <div class="table-wrapper reveal">
+            <table id="teams-table">
+                <thead>
+                    <tr>
+                        <th>TEAM NAME</th>
+                        <th>LEAD NAME</th>
+                        <th>EMAIL</th>
+                        <th>PHONE</th>
+                        <th>MEMBERS</th>
+                        <th>COLLEGE</th>
+                        <th>STATUS</th>
+                        <th>DATE</th>
+                        <th>ACTIONS</th>
+                    </tr>
+                </thead>
+                <tbody id="teams-body">
+                    <tr>
+                        <td colspan="9" class="loader-box">
+                            <div class="font-mono">INITIALIZING DATA STREAMS...</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Details Modal -->
+    <div id="details-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-modal" id="close-modal-btn">&times;</button>
+            <h2 class="font-mono text-p-400" id="modal-team-name">TEAM_DETAILS</h2>
+            <div class="details-grid" id="modal-details-grid">
+                <!-- Populated via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="admin.js"></script>
+</body>
+<!--hello-->
+</html>
