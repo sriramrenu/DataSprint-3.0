@@ -1061,10 +1061,22 @@ footer {
 }
 
 .prize-item .rank {
-    display: block;
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    opacity: 0.3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    margin-bottom: 1.5rem;
+}
+
+.prize-item .rank img {
+    max-height: 100%;
+    width: auto;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+    transition: transform 0.3s ease;
+}
+
+.prize-item:hover .rank img {
+    transform: scale(1.1);
 }
 
 .prize-item .value {
