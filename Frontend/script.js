@@ -965,3 +965,41 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+function showNotification(message) {
+            const container = document.getElementById('notification-container');
+            const toast = document.createElement('div');
+            toast.className = 'toast-notification';
+
+            toast.innerHTML = `
+                <div class="toast-content">
+                    <i class="fas fa-bell"></i>
+                    <div class="toast-message-wrapper">
+                        <div class="toast-message">${message}</div>
+                        <button class="toast-action-btn">View Results</button>
+                    </div>
+                </div>
+                <button class="toast-close">&times;</button>
+                <div class="toast-progress"></div>
+            `;
+
+            container.appendChild(toast);
+            toast.querySelector('.toast-close').onclick = () => {
+                toast.classList.add('hide');
+                setTimeout(() => toast.remove(), 500);
+            };
+            toast.querySelector('.toast-action-btn').onclick = () => {
+                window.location.href = 'https://venkie07.github.io/greet/final.pdf';
+            };
+            setTimeout(() => {
+                if (toast.parentElement) {
+                    toast.classList.add('hide');
+                    setTimeout(() => toast.remove(), 500);
+                }
+            }, 6000);
+        }
+
+        window.onload = () => {
+            setTimeout(() => {
+                showNotification('Results for Preliminary round are out!');
+            }, 1000);
+        };

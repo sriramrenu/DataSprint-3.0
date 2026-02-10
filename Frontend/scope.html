@@ -4,198 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SCOPE - DATA SPRINT 3.0</title>
+    <title>Scope - DATA SPRINT 3.0</title>
     <link rel="icon" href="fav/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
-        :root {
-            --card-bg: rgba(5, 15, 5, 0.6);
-        }
-
-        .scope-section {
-            padding: 120px 0;
-            min-height: auto;
-        }
-
-        .staff-grid {
-            display: flex;
-            justify-content: center;
-            gap: 4rem;
-            flex-wrap: wrap;
-            margin-top: 4rem;
-        }
-
-        .staff-card {
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .staff-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .image-circle {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 3px solid var(--p-500);
-            margin: 0 auto 1.5rem;
-            box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
-            background: #111;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .image-circle img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(20%);
-        }
-
-        .staff-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: #fff;
-        }
-
-        .staff-info p {
-            color: var(--p-400);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* Scope Members List (Vertical) */
-        .members-list {
-            max-width: 900px;
-            margin: 4rem auto 0;
+        /* Internal styles for specific scope page if needed, but we'll use style.css mostly */
+        body {
             display: flex;
             flex-direction: column;
-            gap: 2rem;
-        }
-
-        .member-row {
-            display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 2rem;
-            background: var(--card-bg);
-            padding: 1.5rem 3.5rem;
-            border: 1px solid var(--border-purple);
-            border-radius: 20px 100px 100px 20px;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
+            justify-content: center;
+            min-height: 100vh;
         }
 
-        .scope-letter {
-            font-size: 5rem;
-            font-family: 'Zen Dots', cursive;
-            color: var(--p-500);
-            text-shadow: 0 0 15px var(--p-400);
-            opacity: 0.8;
-            width: 80px;
-            text-align: center;
-            flex-shrink: 0;
-        }
-
-        .member-details {
-            flex-grow: 1;
-            text-align: left;
-        }
-
-        .member-row:hover {
-            border-color: var(--p-400);
-            background: rgba(34, 197, 94, 0.05);
-            transform: scale(1.02);
-        }
-
-        .member-image-circle {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 2px solid var(--p-500);
-            flex-shrink: 0;
-            background: #111;
-        }
-
-        .member-image-circle img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .member-details h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.2rem;
-            color: #fff;
-        }
-
-        .member-details p {
-            color: var(--p-400);
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
-
-        @media (max-width: 768px) {
-            .staff-grid {
-                gap: 3rem;
-            }
-
-            .member-row {
-                flex-direction: row;
-                padding: 1rem 1.5rem;
-                gap: 1rem;
-                border-radius: 20px;
-            }
-
-            .scope-letter {
-                font-size: 3rem;
-                width: 50px;
-            }
-
-            .member-image-circle {
-                width: 70px;
-                height: 70px;
-            }
-
-            .member-details h4 {
-                font-size: 0.7rem;
-            }
-        }
-
-        .back-nav {
-            position: absolute;
-            top: 100px;
-            left: 5%;
-            z-index: 10;
-        }
-
-        .back-link {
-            color: var(--p-400);
-            text-decoration: none;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: color 0.3s;
-        }
-
-        .back-link:hover {
-            color: #fff;
-        }
     </style>
 </head>
 
 <body>
     <div id="letter-glitch"></div>
     <div class="cursor-laser"></div>
-    <div class="scanline"></div>
 
     <nav>
         <div class="container nav-content">
@@ -206,152 +34,20 @@
                             class="floating-version-mini">3.0</span></sup></div>
             </a>
             <div class="nav-links font-zen">
-                <a href="index.html#home">Home</a>
+                <a href="index.html">Home</a>
                 <a href="index.html#about">About</a>
                 <a href="index.html#domains">Rules</a>
-                <a href="index.html#prizes">Prizes</a>
-                <a href="index.html#partners">Sponsors</a>
-                <a href="index.html#faq">FAQ</a>
-                <a href="https://ai.sairamit.edu.in/" target="_blank" class="college-logo-desktop"
-                    rel="noopener noreferrer">
-                    <img src="image.png" alt="College Logo">
-                </a>
+                <div class="nav-btns">
+                    <button class="login-btn">Login</button>
+                </div>
             </div>
         </div>
     </nav>
 
-    <main>
-        <div class="back-nav">
-            <a href="index.html" class="back-link">&lt; BACK_TO_DASHBOARD</a>
-        </div>
-
-        <!-- College Staff Section -->
-        <section id="staff" class="scope-section">
-            <div class="container">
-                <h2 class="section-title font-zen neon-text-purple">FACULTY COORDINATORS</h2>
-                <div class="staff-grid font-mono">
-
-                    <div class="staff-card">
-                        <div class="image-circle">
-                            <img src="pic/image1.jpeg" alt="pic">
-                        </div>
-                        <div class="staff-info">
-                            <h3 class="font-zen">Dr. Sai Prakash Leo Muthu</h3>
-                            <p>CEO - Sairam Institutions</p>
-                        </div>
-                    </div>
-
-                    <div class="staff-card">
-                        <div class="image-circle">
-                            <img src="pic/image2.jpeg" alt="pic">
-                        </div>
-                        <div class="staff-info">
-                            <h3 class="font-zen">DR. K. PALANIKUMAR</h3>
-                            <p>Principal</p>
-                        </div>
-                    </div>
-
-                    <div class="staff-card">
-                        <div class="image-circle">
-                            <img src="pic/image3.jpeg" alt="pic">
-                        </div>
-                        <div class="staff-info">
-                            <h3 class="font-zen">DR. SU. SUGANTHI</h3>
-                            <p>Head of Department (AI & DS)</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <div class="container">
-            <hr style="border: 0; border-top: 1px solid var(--border-purple); margin: 0 auto; width: 80%;">
-        </div>
-
-        <!-- Scope Members Section -->
-        <section id="scope-members" class="scope-section">
-            <div class="container">
-                <h2 class="section-title font-zen neon-text-purple">SCOPE MEMBERS</h2>
-
-                <div class="members-list font-mono">
-
-                    <div class="member-row">
-                        <div class="scope-letter">S</div>
-                        <div class="member-details">
-                            <h4 class="font-zen">MR. J. JEYA GANESAN</h4>
-                            <p>Strategist</p>
-                        </div>
-                        <div class="member-image-circle">
-                            <img src="pic/image4.jpeg" alt="pic">
-                        </div>
-                    </div>
-
-                    <div class="member-row">
-                        <div class="scope-letter">c</div>
-                        <div class="member-details">
-                            <h4 class="font-zen">MR. B. RAVI KUMAR</h4>
-                            <p>Captain</p>
-                        </div>
-                        <div class="member-image-circle">
-                            <img src="pic/image5.jpeg" alt="pic">
-                        </div>
-                    </div>
-
-                    <div class="member-row">
-                        <div class="scope-letter">o</div>
-                        <div class="member-details">
-                            <h4 class="font-zen">MR. A. RAJA SEKAR</h4>
-                            <p>Organizer</p>
-                        </div>
-                        <div class="member-image-circle">
-                            <img src="pic/image6.jpeg" alt="pic">
-                        </div>
-                    </div>
-
-                    <div class="member-row">
-                        <div class="scope-letter">p</div>
-                        <div class="member-details">
-                            <h4 class="font-zen">MS. T. UMA MAGESWARI</h4>
-                            <p>Propagator</p>
-                        </div>
-                        <div class="member-image-circle">
-                            <img src="pic/image7.jpeg" alt="pic">
-                        </div>
-                    </div>
-
-                    <div class="member-row">
-                        <div class="scope-letter">e</div>
-                        <div class="member-details">
-                            <h4 class="font-zen">MS. M. GANGA</h4>
-                            <p>Executor</p>
-                        </div>
-                        <div class="member-image-circle">
-                            <img src="pic/image8.jpeg" alt="pic">
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="terminal">
-                <div class="terminal-status font-mono">
-                    <div style="display: flex; gap: 1rem;">
-                        <span style="color: #ffffff;">● SCOPE_PAGE_ACTIVE</span>
-                    </div>
-                    <div style="opacity: 1;">© 2026 DEPT OF AI & DS</div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
+    
     <script src="script.js"></script>
     <script>
-        // Initialize glitch and cursor if needed for this page
+        
     </script>
 </body>
 

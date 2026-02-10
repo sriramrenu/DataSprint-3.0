@@ -57,6 +57,7 @@
       </button>
     </div>
   </nav>
+  <div id="notification-container"></div>
 
   <main>
     <section class="hero" id="home">
@@ -77,11 +78,48 @@
           <div class="partner-logo font-zen"
             style="font-size: 0.8rem; line-height: 1; letter-spacing: 0.15rem; color: var(--p-400); opacity: 0.9;">
             POWERED BY</div>
-          <div class="image-circle"
-            style="width: 90px; height: 90px; border-width: 2px; margin: 0; box-shadow: 0 0 15px var(--p-500);">
+          <div class="image-circle">
             <img src="unstop.jpeg" alt="Unstop">
           </div>
         </div>
+
+        <div class="btn-group font-zen">
+          <button onclick='window.location.href="https://venkie07.github.io/greet/final.pdf"' style="
+      color:#00ff41;
+      font-size:0.8rem;
+      text-transform:uppercase;
+      letter-spacing:0.1em;
+      cursor:pointer;
+
+      /* Layout from your original button */
+      padding:1rem 2.5rem;
+      border:none;
+      border-radius:6px;
+      width:auto;
+
+      /* Matrix theme */
+      background:#000;
+      border:1px solid #00ff41;
+      box-shadow:0 0 12px rgba(0,255,65,0.6), inset 0 0 6px rgba(0,255,65,0.5);
+
+      /* Smooth animation like your button */
+      transition:all 0.3s ease, transform 0.3s ease;
+    " onmouseover="
+      this.style.background='#00ff41';
+      this.style.color='#000';
+      this.style.boxShadow='0 0 25px rgba(0,255,65,0.9), 0 0 45px rgba(0,255,65,0.7)';
+      this.style.transform='translateY(-3px) scale(1.03)';
+    " onmouseout="
+      this.style.background='#000';
+      this.style.color='#00ff41';
+      this.style.boxShadow='0 0 12px rgba(0,255,65,0.6), inset 0 0 6px rgba(0,255,65,0.5)';
+      this.style.transform='translateY(0) scale(1)';
+    ">
+            View Result
+          </button>
+        </div>
+
+        <br>
 
         <div class="hero-info-card">
           <div class="hero-date font-zen">
@@ -690,11 +728,11 @@
 
             <h4 class="section-titl">TEAM_LEAD_DETAILS</h4>
             <div class="input-group">
-              <label>📝 FULL_NAME</label>
+              <label>FULL_NAME</label>
               <input type="text" required placeholder="Lead name" name="lead_name">
             </div>
             <div class="input-group">
-              <label>📞 PHONE_NUMBER</label>
+              <label>PHONE_NUMBER</label>
               <input type="tel" required placeholder="+91 XXXX XXXX XX" name="lead_phone">
             </div>
             <div class="input-group email-verify-group">
