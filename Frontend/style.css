@@ -47,12 +47,10 @@
 }
 
 @media (pointer: fine) {
-    * {
-        cursor: none !important;
-    }
+    /* cursor: none !important; - Restored to default */
 
     .cursor-laser {
-        display: block;
+        display: none !important;
     }
 }
 

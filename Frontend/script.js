@@ -150,68 +150,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 5000);
     }
 
-    // Countdown Timer & Loading Bar
-    const targetDate = new Date('February 12, 2026 00:00:00').getTime();
-    const startDate = new Date('February 1, 2026 00:00:00').getTime(); // Reference point for percentage
-    const totalDuration = targetDate - startDate;
 
-    const updateCountdown = () => {
-        const now = new Date().getTime();
-        const distance = targetDate - now;
-        const elapsed = now - startDate;
 
-        if (distance < 0) {
-            clearInterval(timerInterval);
-            const loadingPct = document.getElementById('loading-pct');
-            const loadingFill = document.getElementById('loading-fill');
-            if (loadingPct) loadingPct.innerText = '100%';
-            if (loadingFill) loadingFill.style.width = '100%';
-            return;
-        }
-
-        // Percentage Calculation
-        const percentage = Math.min(100, Math.max(0, (elapsed / totalDuration) * 100));
-        const loadingPct = document.getElementById('loading-pct');
-        const loadingFill = document.getElementById('loading-fill');
-
-        if (loadingPct) loadingPct.innerText = `${percentage.toFixed(1)}%`;
-        if (loadingFill) loadingFill.style.width = `${percentage}%`;
-
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        // Update Hero Elements
-        const heroDays = document.getElementById('days-hero');
-        const heroHours = document.getElementById('hours-hero');
-        const heroMins = document.getElementById('minutes-hero');
-        const heroSecs = document.getElementById('seconds-hero');
-
-        if (heroDays) heroDays.innerText = days.toString().padStart(2, '0');
-        if (heroHours) heroHours.innerText = hours.toString().padStart(2, '0');
-        if (heroMins) heroMins.innerText = minutes.toString().padStart(2, '0');
-        if (heroSecs) heroSecs.innerText = seconds.toString().padStart(2, '0');
-
-        // Update Sticky Elements
-        const stickyDays = document.getElementById('days-sticky');
-        const stickyHours = document.getElementById('hours-sticky');
-        const stickyMins = document.getElementById('minutes-sticky');
-        const stickySecs = document.getElementById('seconds-sticky');
-
-        if (stickyDays) stickyDays.innerText = days.toString().padStart(2, '0');
-        if (stickyHours) stickyHours.innerText = hours.toString().padStart(2, '0');
-        if (stickyMins) stickyMins.innerText = minutes.toString().padStart(2, '0');
-        if (stickySecs) stickySecs.innerText = seconds.toString().padStart(2, '0');
-    };
-
-    // Only start timer if elements exist to update
-    if (document.getElementById('loading-pct')) {
-        const timerInterval = setInterval(updateCountdown, 1000);
-        updateCountdown();
-    }
-
-    // Custom Cursor Tracking
+    // Custom Cursor Tracking disabled
+    /*
     const cursor = document.querySelector('.cursor-laser');
     if (cursor) {
         document.addEventListener('mousemove', (e) => {
@@ -219,6 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cursor.style.top = e.clientY - 10 + 'px';
         });
     }
+    */
 
     // Auth Modal Logic
     const modal = document.getElementById('auth-modal');
@@ -725,32 +668,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Sticky Loader Scroll Logic
-    const stickyLoader = document.getElementById('sticky-loader');
-    if (stickyLoader) {
-        window.addEventListener('scroll', () => {
-            // Show loader only when not on home page (scrolled > 300px)
-            if (window.scrollY > 300) {
-                stickyLoader.classList.add('visible');
-            } else {
-                stickyLoader.classList.remove('visible');
-            }
-        });
 
-        // Automatic Flip Logic
-        const widgetInner = stickyLoader.querySelector('.widget-inner');
-        if (widgetInner) {
-            let isFlipped = false;
-            setInterval(() => {
-                isFlipped = !isFlipped;
-                if (isFlipped) {
-                    widgetInner.style.transform = 'rotateY(180deg)';
-                } else {
-                    widgetInner.style.transform = 'rotateY(0deg)';
-                }
-            }, 10000); // Flip every 10 seconds
-        }
-    }
 
     const revealCallback = (entries, observer) => {
         entries.forEach(entry => {
@@ -966,11 +884,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function showNotification(message) {
-            const container = document.getElementById('notification-container');
-            const toast = document.createElement('div');
-            toast.className = 'toast-notification';
+    const container = document.getElementById('notification-container');
+    const toast = document.createElement('div');
+    toast.className = 'toast-notification';
 
-            toast.innerHTML = `
+    toast.innerHTML = `
                 <div class="toast-content">
                     <i class="fas fa-bell"></i>
                     <div class="toast-message-wrapper">
@@ -982,24 +900,24 @@ function showNotification(message) {
                 <div class="toast-progress"></div>
             `;
 
-            container.appendChild(toast);
-            toast.querySelector('.toast-close').onclick = () => {
-                toast.classList.add('hide');
-                setTimeout(() => toast.remove(), 500);
-            };
-            toast.querySelector('.toast-action-btn').onclick = () => {
-                window.location.href = 'https://venkie07.github.io/greet/final.pdf';
-            };
-            setTimeout(() => {
-                if (toast.parentElement) {
-                    toast.classList.add('hide');
-                    setTimeout(() => toast.remove(), 500);
-                }
-            }, 6000);
+    container.appendChild(toast);
+    toast.querySelector('.toast-close').onclick = () => {
+        toast.classList.add('hide');
+        setTimeout(() => toast.remove(), 500);
+    };
+    toast.querySelector('.toast-action-btn').onclick = () => {
+        window.location.href = 'https://venkie07.github.io/greet/final.pdf';
+    };
+    setTimeout(() => {
+        if (toast.parentElement) {
+            toast.classList.add('hide');
+            setTimeout(() => toast.remove(), 500);
         }
+    }, 6000);
+}
 
-        window.onload = () => {
-            setTimeout(() => {
-                showNotification('Results for Preliminary round are out!');
-            }, 1000);
-        };
+window.onload = () => {
+    setTimeout(() => {
+        showNotification('Results for Preliminary round are out!');
+    }, 1000);
+};

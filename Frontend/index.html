@@ -25,7 +25,6 @@
     <img src="datasprint_transparent.png" alt="Logo" id="preloader-logo">
   </div>
 
-  <div class="cursor-laser"></div>
   <div class="scanline"></div>
   <div id="notification-container"></div>
 
@@ -130,23 +129,8 @@
 
         <!-- New Hero Countdown (from template) -->
         <div class="hero-timer-box font-zen">
-          <div class="countdown-row" id="hero-countdown-row">
-            <div class="time-block">
-              <div class="time-val" id="days-hero">00</div>
-              <div class="time-label">DAYS</div>
-            </div>
-            <div class="time-block">
-              <div class="time-val" id="hours-hero">00</div>
-              <div class="time-label">HOURS</div>
-            </div>
-            <div class="time-block">
-              <div class="time-val" id="minutes-hero">00</div>
-              <div class="time-label">MIN</div>
-            </div>
-            <div class="time-block">
-              <div class="time-val" id="seconds-hero">00</div>
-              <div class="time-label">SEC</div>
-            </div>
+          <div class="quote-display" style="font-size: 2.5rem; color: #fff; text-shadow: 0 0 15px var(--p-400);">
+            Unleash the power of Data
           </div>
         </div>
 
@@ -155,28 +139,7 @@
         </div>
     </section>
 
-    <!-- Separate Sticky Loader (Slides from Left) -->
-    <div class="sticky-loader-widget" id="sticky-loader">
-      <div class="widget-inner">
-        <div class="widget-front">
-          <div class="loading-bar-wrapper">
-            <div class="loading-label font-mono">LOADING DATA...</div>
-            <div class="loading-bar">
-              <div class="loading-bar-fill" id="loading-fill"></div>
-            </div>
-            <span class="loading-percentage font-mono" id="loading-pct">0%</span>
-          </div>
-        </div>
-        <div class="widget-back">
-          <div class="compact-timer font-mono">
-            <div class="timer-item"><span id="days-sticky">00</span><small>D</small></div>
-            <div class="timer-item"><span id="hours-sticky">00</span><small>H</small></div>
-            <div class="timer-item"><span id="minutes-sticky">00</span><small>M</small></div>
-            <div class="timer-item"><span id="seconds-sticky">00</span><small>S</small></div>
-          </div>
-        </div>
-      </div>
-    </div>
+
 
     <section id="about" class="reveal">
       <div class="container">
